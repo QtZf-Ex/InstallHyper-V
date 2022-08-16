@@ -17,7 +17,7 @@ def Install_Apache():
     os.system("sudo yum update && sudo yum upgrade -y")
     os.system("sudo yum update httpd -y")
     os.system("sudo yum install httpd -y")
-
+ 
     # Открыть порт 90 и 443 http https + reload firewalld 
     os.system("sudo firewall-cmd --permanent --add-service=http")
     os.system("sudo firewall-cmd --permanent --add-service=https")
