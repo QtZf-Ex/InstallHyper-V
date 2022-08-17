@@ -1,7 +1,6 @@
 import os
 
 def Config_reni_php71_repo():
-
     TXT_config_reni_php71_repo ='''# This repository only provides PHP 7.1 and its extensions
 # NOTICE: common dependencies are in "remi-safe"
 
@@ -28,4 +27,4 @@ name=Remi's PHP 7.1 test RPM repository for Enterprise Linux 7 - $basearch
 mirrorlist=http://cdn.remirepo.net/enterprise/7/test71/mirror
 enabled=0
 gpgcheck=1 '''
-    os.system("echo TXT_config_reni_php71_repo > /etc/yum.repos.d/remi-php71.repo/etc/yum.repos.d/remi-php71.repo")
+    os.system("echo TXT_config_reni_php71_repo >> /etc/yum.repos.d/remi-php71.repo/etc/yum.repos.d/remi-php71.repo")
