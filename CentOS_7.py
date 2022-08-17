@@ -36,7 +36,7 @@ def Install_Apache():
     os.system("ip a | grep eth0 >> Info")
     os.system("#curl -4 hostname.com >> Info")
     os.system("hostname -I >> Info")
-    print(''' \n\end of install Apache\n\n''')
+    print(''' \n\nend of install Apache\n\n''')
 
 def Install_PHP():
     print(''' \n\nInstall PHP\n\n''')
@@ -52,7 +52,7 @@ def Install_PHP():
     os.system("sudo yum install php php-fpm php-gd php-mysql -y")
     os.system("sudo systemctl restart php-fpm -y")
     os.system("sudo systemctl status php")
-    print(''' \n\end of install PHP\n\n''')
+    print(''' \n\nend of install PHP\n\n''')
 ### definitions of what needs to be installed
 
 if ('1' in CentOS_7_Mass_Install[0]):
@@ -65,21 +65,23 @@ elif ('3' in CentOS_7_Mass_Install[0]):
     print ("go to install Zabbix")
 
 
+
 if ('1' in CentOS_7_Mass_Install[1]):
-    print("go to install Apache_2")
+    Install_Apache()
 
 elif ('2' in CentOS_7_Mass_Install[1]):
-    print("go to install PHP_2")
+    Install_PHP()
 
 elif ('3' in CentOS_7_Mass_Install[1]):
     print("go to install Zabbix_2")    
 
 
+
 if ('1' in CentOS_7_Mass_Install[2]):
-    print("go to install Apache_3")
+    Install_Apache()
 
 elif ('2' in CentOS_7_Mass_Install[2]):
-    print("go to install PHP_3")
+    Install_PHP()
 
 elif ('3' in CentOS_7_Mass_Install[2]):
     print("go to install Zabbix_3")  
