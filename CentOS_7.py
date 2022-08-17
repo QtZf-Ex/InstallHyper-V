@@ -1,5 +1,4 @@
 from main import *
-from PHP_Config_V71 import *
 import os
 
 CentOS_7_Mass_Install = CentOS_7_Mass_Install.split()
