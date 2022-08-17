@@ -1,5 +1,7 @@
-with open("/etc/yum.repos.d/remi-php71.repo", "w") as file:
-    file.write('''# This repository only provides PHP 7.1 and its extensions
+def Config_reni_php71_repo():
+
+    with open("/etc/yum.repos.d/remi-php71.repo", "w") as file:
+        file.write('''# This repository only provides PHP 7.1 and its extensions
 # NOTICE: common dependencies are in "remi-safe"
 
 [remi-php71]

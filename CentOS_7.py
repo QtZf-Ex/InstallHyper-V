@@ -1,4 +1,5 @@
 from main import *
+from PHP_Config_V71 import *
 import os
 
 CentOS_7_Mass_Install = CentOS_7_Mass_Install.split()
@@ -40,7 +41,7 @@ def Install_PHP():
     os.system("sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm")
     os.system("sudo rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm")
     os.system("vi /etc/yum.repos.d/remi-php71.repo")
-    f = open('/etc/yum.repos.d/remi-php71.repo', 'w')
+    os.system()
     
     
     
