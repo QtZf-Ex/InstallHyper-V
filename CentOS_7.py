@@ -40,20 +40,31 @@ def Install_Apache():
 
 def Install_PHP():
     print(''' \n\nInstall PHP\n\n''')
-    # Подключение репозитория + его установка
-    os.system("sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm")
-    os.system("sudo rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm")
-    
-    # Использование функции Config_reni_php71_repo из PHP_Config_V71
-    os.system("rm -rf /etc/yum.repos.d/remi-php71.repo")
-    os.system("cp remi-php71.txt /etc/yum.repos.d/")
-    os.system("mv /etc/yum.repos.d/remi-php71.txt /etc/yum.repos.d/remi-php71.repo")
+    Standart_User = input('''\n\nStandart User is? (root)\n\n''')
 
+    # Установка PHP
+    os.system("sudo yum install php php-mysql")
+    os.system("sudo systemctl restart httpd.service")
     
-    os.system("sudo yum update -y")
-    os.system("sudo yum install php php-fpm php-gd php-mysql -y")
-    os.system("sudo systemctl restart php-fpm -y")
-    os.system("sudo systemctl status php")
+    # Установка владельца Apache
+    os.system("sudo chown -R " + Standart_User + "/var/www/html/")
+    os.system("echo /var/www/html/info.php >> <?php phpinfo(); ?>")
+
+    os.system("""ip a | grep eth0 | grep inet | awk '{print $2}' | cut -d"/" -f1""")
+
+#    http://your_server_IP_address/info.php
+
+def Install_MariaDB():
+
+    os.system("sudo yum install mariadb-server")
+    os.system("sudo systemctl start mariadb")
+    os.system("sudo systemctl enable mariadb.service")
+    os.system("sudo mysql_secure_installation")
+    os.system("")
+    os.system("")
+    os.system("")
+
+
 
 
     print(''' \n\nend of install PHP\n\n''')
@@ -63,10 +74,10 @@ if ('1' in CentOS_7_Mass_Install[0]):
     Install_Apache()
 
 elif ('2' in CentOS_7_Mass_Install[0]):
-    Install_PHP()
+    Install_MariaDB()
 
 elif ('3' in CentOS_7_Mass_Install[0]):
-    print ("go to install Zabbix")
+    Install_PHP()
 
 
 
