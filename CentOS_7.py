@@ -1,4 +1,5 @@
 from ast import In
+from re import S
 from main import *
 import os
 
@@ -41,6 +42,7 @@ def Install_Apache():
 def Install_PHP():
     print(''' \n\nInstall PHP\n\n''')
     Standart_User = input('''\n\nStandart User is? (root)\n\n''')
+    print(Standart_User) 
 
     # Установка PHP
     os.system("sudo yum install php php-mysql")
@@ -48,7 +50,7 @@ def Install_PHP():
     
     # Установка владельца Apache
     Info_PHP = "<?php phpinfo(); ?>"
-    os.system("sudo chown -R " + Standart_User + "/var/www/html")
+    os.system("sudo chown -R " + Standart_User + "/var/www/html/")
     os.system("echo " + Info_PHP +" >> /var/www/html/info.php >>")
 
     os.system("""ip a | grep eth0 | grep inet | awk '{print $2}' | cut -d"/" -f1""")
