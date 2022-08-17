@@ -45,15 +45,16 @@ def Install_PHP():
     os.system("sudo rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm")
     
     # Использование функции Config_reni_php71_repo из PHP_Config_V71
-    os.system(Config_reni_php71_repo)
-    
+    os.system("rm -rf /etc/yum.repos.d/remi-php71.repo")
+    os.system("cp remi-php71.txt /etc/yum.repos.d/")
+    os.system("mv /etc/yum.repos.d/remi-php71.txt /etc/yum.repos.d/remi-php71.repo")
+
     
     os.system("sudo yum update -y")
     os.system("sudo yum install php php-fpm php-gd php-mysql -y")
     os.system("sudo systemctl restart php-fpm -y")
     os.system("sudo systemctl status php")
-    os.system("rm -rf /etc/yum.repos.d/remi-php71.repo/etc/yum.repos.d/remi-php71.repo")
-    os.system("cp")
+
 
     print(''' \n\nend of install PHP\n\n''')
 ### definitions of what needs to be installed
