@@ -40,13 +40,6 @@ def Install_PHP():
     os.system("sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm")
     os.system("sudo rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm")
     os.system("vi /etc/yum.repos.d/remi-php71.repo")
-    with open ('/etc/yum.repos.d/remi-php71.repo', 'r') as f:
-        old_data = f.read()
-
-        new_data = old_data.replace('что_меняем', 'на_что_меняем')
-
-    with open ('test.txt', 'w') as f:
-        f.write(new_data)
     
     
     
