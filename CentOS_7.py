@@ -48,7 +48,7 @@ def Install_PHP():
     os.system(Config_reni_php71_repo)
     
     
-    os.system(" sudo yum update -y")
+    os.system("sudo yum update -y")
     os.system("sudo yum install php php-fpm php-gd php-mysql -y")
     os.system("sudo systemctl restart php-fpm -y")
     os.system("sudo systemctl status php")
