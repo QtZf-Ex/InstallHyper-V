@@ -39,6 +39,7 @@ def Install_Apache():
     print(''' \n\end of install Apache\n\n''')
 
 def Install_PHP():
+    print(''' \n\nInstall PHP\n\n''')
     # Подключение репозитория + его установка
     os.system("sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm")
     os.system("sudo rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm")
@@ -51,7 +52,7 @@ def Install_PHP():
     os.system("sudo yum install php php-fpm php-gd php-mysql -y")
     os.system("sudo systemctl restart php-fpm -y")
     os.system("sudo systemctl status php")
-
+    print(''' \n\end of install PHP\n\n''')
 ### definitions of what needs to be installed
 
 if ('1' in CentOS_7_Mass_Install[0]):
