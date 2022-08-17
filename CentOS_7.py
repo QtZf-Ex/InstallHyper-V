@@ -43,6 +43,15 @@ def Install_PHP():
     print(''' \n\nInstall PHP\n\n''')
     Standart_User = input('''\n\nStandart User is? (root)\n\n''')
     print(Standart_User) 
+    print(Standart_User) 
+    print(Standart_User) 
+    print(Standart_User) 
+    print(Standart_User) 
+    print(Standart_User) 
+    print(Standart_User) 
+    
+
+
 
     # Установка PHP
     os.system("sudo yum install php php-mysql")
