@@ -4,9 +4,9 @@ import os
 
 CentOS_7_Mass_Install = CentOS_7_Mass_Install.split()
 
-print(CentOS_7_Mass_Install[0])
-print(len(CentOS_7_Mass_Install))
-print(CentOS_7_Mass_Install)
+# Просмотр выбранных пунктов 
+print("You have chosen: ", CentOS_7_Mass_Install)
+
 
 # Настройка Firewalld 
 # Настройка Iptables https://github.com/ZaDr0t-sys/InstallHyper-V
@@ -15,6 +15,7 @@ print(CentOS_7_Mass_Install)
 
 
 def Install_Apache():
+    print(''' \n\nInstall Apache\n\n''')
     os.system("sudo yum update && sudo yum upgrade -y")
     os.system("sudo yum update httpd -y")
     os.system("sudo yum install httpd -y")
@@ -38,22 +39,18 @@ def Install_Apache():
     
 
 def Install_PHP():
+    # Подключение репозитория + его установка
     os.system("sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm")
     os.system("sudo rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm")
-    os.system("vi /etc/yum.repos.d/remi-php71.repo")
-    os.system()
+    
+    # Использование функции Config_reni_php71_repo из PHP_Config_V71
+    os.system(Config_reni_php71_repo)
     
     
-    
-    os.system("")
-    os.system("")
-    os.system("")
-    os.system("")
-    os.system("")
-    os.system("")
-    os.system("")
-    os.system("")
-    os.system("")
+    os.system(" sudo yum update -y")
+    os.system("sudo yum install php php-fpm php-gd php-mysql -y")
+    os.system("sudo systemctl restart php-fpm -y")
+    os.system("sudo systemctl status php")
 
 ### definitions of what needs to be installed
 
@@ -61,7 +58,7 @@ if ('1' in CentOS_7_Mass_Install[0]):
     Install_Apache()
 
 elif ('2' in CentOS_7_Mass_Install[0]):
-    print ("go to install PHP")
+    Install_PHP()
 
 elif ('3' in CentOS_7_Mass_Install[0]):
     print ("go to install Zabbix")
@@ -85,3 +82,5 @@ elif ('2' in CentOS_7_Mass_Install[2]):
 
 elif ('3' in CentOS_7_Mass_Install[2]):
     print("go to install Zabbix_3")  
+
+# Создай try, чтобы выводилось красиво, а не фигня в конце. Там выводится line 80 в ауте range

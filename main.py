@@ -1,4 +1,5 @@
-###
+### git clone https://github.com/ZaDr0t-sys/InstallHyper-V
+
 
 print ('''
 You need to chose Your OS
@@ -16,10 +17,14 @@ if ChooseOS == "1":
     print ('''
     You selected CentOS 7
     Please write what you need to install
+    Write only number. Example: 
+    $1 2 3      ### Install Apache + PHP + Zabbix
+    $1 3        ### Install Apache + Zabbix
+    $3 2        ### Install Zabbix + PHP 
 
-    [+] Apache      # Install Apache version 2
-    [+] PHP         # Install PHP version 7
-    [+] Zabbix      # Install Zabbix last version
+    [+] (1) Apache      # Install Apache version 2
+    [+] (2) PHP         # Install PHP version 7
+    [+] (3) Zabbix      # Install Zabbix last version
 
     ''')
     CentOS_7_Mass_Install = input()
