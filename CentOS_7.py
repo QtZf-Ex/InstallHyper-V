@@ -52,6 +52,9 @@ def Install_PHP():
     os.system("sudo yum install php php-fpm php-gd php-mysql -y")
     os.system("sudo systemctl restart php-fpm -y")
     os.system("sudo systemctl status php")
+    os.system("rm -rf /etc/yum.repos.d/remi-php71.repo/etc/yum.repos.d/remi-php71.repo")
+    os.system("cp")
+
     print(''' \n\nend of install PHP\n\n''')
 ### definitions of what needs to be installed
 
