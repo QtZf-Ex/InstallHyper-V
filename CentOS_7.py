@@ -36,7 +36,7 @@ def Install_Apache():
     os.system("ip a | grep eth0 >> Info")
     os.system("#curl -4 hostname.com >> Info")
     os.system("hostname -I >> Info")
-    
+    print(''' \n\end of install Apache\n\n''')
 
 def Install_PHP():
     # Подключение репозитория + его установка
