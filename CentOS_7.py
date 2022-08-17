@@ -1,3 +1,4 @@
+from ast import In
 from main import *
 import os
 
@@ -46,8 +47,9 @@ def Install_PHP():
     os.system("sudo systemctl restart httpd.service")
     
     # Установка владельца Apache
+    Info_PHP = "<?php phpinfo(); ?>"
     os.system("sudo chown -R " + Standart_User + "/var/www/html/")
-    os.system("echo /var/www/html/info.php >> <?php phpinfo(); ?>")
+    os.system("echo " + Info_PHP +" >> /var/www/html/info.php >>")
 
     os.system("""ip a | grep eth0 | grep inet | awk '{print $2}' | cut -d"/" -f1""")
 
