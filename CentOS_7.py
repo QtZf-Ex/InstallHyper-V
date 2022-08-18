@@ -48,6 +48,8 @@ def Install_PHP():
     os.system("sudo yum install php php-mysql")
     os.system("sudo systemctl restart httpd.service")
     
+    # Сделай файлик с php info, и вставляй его в нужный путь. Нет смысла записывать в файл информацию из переменной
+
     # Установка владельца Apache
     Info_PHP = "<?php phpinfo(); ?>"
     os.system("sudo chown -R " + Standart_User + "/var/www/html/")
