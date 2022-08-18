@@ -57,17 +57,6 @@ def Install_PHP():
 
 #    http://your_server_IP_address/info.php
 
-def Install_MariaDB():
-
-    os.system("sudo yum install mariadb-server")
-    os.system("sudo systemctl start mariadb")
-    os.system("sudo systemctl enable mariadb.service")
-    os.system("sudo mysql_secure_installation")
-    os.system("")
-    os.system("")
-    os.system("")
-
-
 
 
     print(''' \n\nend of install PHP\n\n''')
@@ -77,10 +66,10 @@ if ('1' in CentOS_7_Mass_Install[0]):
     Install_Apache()
 
 elif ('2' in CentOS_7_Mass_Install[0]):
-    Install_MariaDB()
+    Install_PHP()
 
 elif ('3' in CentOS_7_Mass_Install[0]):
-    Install_PHP()
+    print('Zabbix')
 
 
 
