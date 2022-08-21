@@ -55,7 +55,7 @@ def Install_PHP():
     else:
         print("You entered an unspecified value. You need to use Y or N. Start again...")
 
-    if Standart_User_Is_Whoami == "y" or Standart_User_Is_Whoami == "Y" or Standart_User != "":
+    if Standart_User_Is_Whoami == "y" or Standart_User_Is_Whoami == "Y" or Standart_User(str) != "":
         
         # Установка PHP
         os.system("sudo yum install php php-mysql")
