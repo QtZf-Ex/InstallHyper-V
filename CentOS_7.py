@@ -43,32 +43,42 @@ def Install_Apache():
 
 def Install_PHP():
     print(''' \n\nInstall PHP\n\n''')
-    Standart_User = input('''\n\nStandart User is? (root)\n\n''')
-    print(Standart_User) 
 
-    # Установка PHP
-    os.system("sudo yum install php php-mysql")
-    os.system("sudo systemctl restart httpd.service")
+    Standart_User_Is_Whoami = input("Standart User for owner of Apache is: " + os.system("whoami") + "OK?\n")
+    if Standart_User_Is_Whoami == "y" or Standart_User_Is_Whoami == "Y":
+        print("OK, Apache owner is" + os.system("whoami") + "\n\n\n")
     
-    # Сделай файлик с php info, и вставляй его в нужный путь. Нет смысла записывать в файл информацию из переменной
-
-    # Установка владельца Apache
-    os.system("sudo chown -R " + Standart_User + "/var/www/html/")
-
-    #Создание файлика info.php
-    os.system("cp info.php /var/www/html/info.php")
+    elif Standart_User_Is_Whoami == "n" or Standart_User_Is_Whoami == "N":
+        Standart_User_whoami = os.system("whoami")
+        Standart_User = input("\n\nStandart User is" + os.system("whoami") + "?\n\n")
+        print("Apache owner is "+ Standart_User) 
     
-    # Получить информацию о php
-    os.system("Apache Info: >> Info")
-    os.system("""ip a | grep eth0 | grep inet | awk '{print $2}' | cut -d"/" -f1 >> Info""")
-    os.system("hostname -I >> Info\n\n\n")
+    else:
+        print("You entered an unspecified value. You need to use Y or N. Start again...")
 
-#    http://your_server_IP_address/info.php
+    if Standart_User_Is_Whoami == "y" or Standart_User_Is_Whoami == "Y":
+        
+        # Установка PHP
+        os.system("sudo yum install php php-mysql")
+        os.system("sudo systemctl restart httpd.service")
+
+        # Установка владельца Apache
+        os.system("sudo chown -R " + Standart_User + "/var/www/html/")
+
+        #Создание файлика info.php
+        os.system("cp info.php /var/www/html/info.php")
+        
+        # Получить информацию о php
+        os.system("Apache Info: >> Info")
+        os.system("""ip a | grep eth0 | grep inet | awk '{print $2}' | cut -d"/" -f1 >> Info""")
+        os.system("hostname -I >> Info\n\n\n")
+
+        # http://your_server_IP_address/info.php
 
 
 
-    print(''' \n\nend of install PHP\n\n''')
-### definitions of what needs to be installed
+        print(''' \n\nend of install PHP\n\n''')
+        ### definitions of what needs to be installed
 
 if ('1' in CentOS_7_Mass_Install[0]):
     Install_Apache()
