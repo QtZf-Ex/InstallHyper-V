@@ -35,7 +35,6 @@ def Install_Apache():
 
     # Получить имя хоста
     os.system("ip a | grep eth0 >> Info")
-    os.system("#curl -4 hostname.com >> Info")
     os.system("hostname -I >> Info")
     print(''' \n\nend of install Apache\n\n''')
 
@@ -51,8 +50,9 @@ def Install_PHP():
     # Сделай файлик с php info, и вставляй его в нужный путь. Нет смысла записывать в файл информацию из переменной
 
     # Установка владельца Apache
-    Info_PHP = "<?php phpinfo(); ?>"
     os.system("sudo chown -R " + Standart_User + "/var/www/html/")
+
+    #Создание файлика info.php
     os.system("echo " + Info_PHP +" >> /var/www/html/info.php")
 
     os.system("""ip a | grep eth0 | grep inet | awk '{print $2}' | cut -d"/" -f1""")
