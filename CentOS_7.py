@@ -34,8 +34,9 @@ def Install_Apache():
     os.system("sudo systemctl enable httpd")
 
     # Получить имя хоста
+    os.system("Apache Info: >> Info")
     os.system("ip a | grep eth0 | grep inet | awk '{print $2}' | cut -d"/" -f1 >> Info")
-    os.system("hostname -I >> Info")
+    os.system("hostname -I >> Info_Apache")
     print(''' \n\nend of install Apache\n\n''')
 
 def Install_PHP():
