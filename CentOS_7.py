@@ -43,18 +43,18 @@ def Install_PHP():
     print(''' \n\nInstall PHP\n\n''')
 
     Standart_User_Is_Whoami = input("Standart User for owner of Apache is: " + os.system("whoami") + "OK?\n")
-    if Standart_User_Is_Whoami(str) == "y" or Standart_User_Is_Whoami == "Y":
-        Standart_User = Standart_User_Is_Whoami(str)
+    if str(Standart_User_Is_Whoami) == "y" or str(Standart_User_Is_Whoami) == "Y":
+        Standart_User = Standart_User_Is_Whoami
         print("OK, Apache owner is" + Standart_User + "\n\n\n")
     
-    elif Standart_User_Is_Whoami(str) == "n" or Standart_User_Is_Whoami == "N":
+    elif Standart_User_Is_Whoami == "n" or Standart_User_Is_Whoami == "N":
         Standart_User = input("\n\nStandart User is" + os.system("whoami") + "?\n\n")
         print("Apache owner is "+ Standart_User) 
     
     else:
         print("You entered an unspecified value. You need to use Y or N. Start again...")
 
-    if Standart_User_Is_Whoami == "y" or Standart_User_Is_Whoami == "Y" or Standart_User(str) != "":
+    if Standart_User_Is_Whoami == "y" or Standart_User_Is_Whoami == "Y" or Standart_User != "":
         
         # Установка PHP
         os.system("sudo yum install php php-mysql")
