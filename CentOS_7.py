@@ -33,10 +33,12 @@ def Install_Apache():
     # автозапуск 
     os.system("sudo systemctl enable httpd")
 
-    # Получить имя хоста
+    # Получить информацию о apache
     os.system("Apache Info: >> Info")
-    os.system("ip a | grep eth0 | grep inet | awk '{print $2}' | cut -d"/" -f1 >> Info")
-    os.system("hostname -I >> Info_Apache")
+    os.system("""ip a | grep eth0 | grep inet | awk '{print $2}' | cut -d"/" -f1 >> Info""")
+    os.system("hostname -I >> Info\n\n\n")
+
+    # End
     print(''' \n\nend of install Apache\n\n''')
 
 def Install_PHP():
@@ -55,8 +57,11 @@ def Install_PHP():
 
     #Создание файлика info.php
     os.system("cp info.php /var/www/html/info.php")
-
+    
+    # Получить информацию о php
+    os.system("Apache Info: >> Info")
     os.system("""ip a | grep eth0 | grep inet | awk '{print $2}' | cut -d"/" -f1 >> Info""")
+    os.system("hostname -I >> Info\n\n\n")
 
 #    http://your_server_IP_address/info.php
 
