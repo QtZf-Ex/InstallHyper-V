@@ -1,4 +1,5 @@
 from ast import In
+from asyncio.windows_events import NULL
 from re import S
 from main import *
 import os
@@ -46,7 +47,8 @@ def Install_PHP():
 
     Standart_User_Is_Whoami = input("Standart User for owner of Apache is: " + os.system("whoami") + "OK?\n")
     if Standart_User_Is_Whoami == "y" or Standart_User_Is_Whoami == "Y":
-        print("OK, Apache owner is" + os.system("whoami") + "\n\n\n")
+        Standart_User = Standart_User_Is_Whoami
+        print("OK, Apache owner is" + Standart_User + "\n\n\n")
     
     elif Standart_User_Is_Whoami == "n" or Standart_User_Is_Whoami == "N":
         Standart_User_whoami = os.system("whoami")
@@ -55,8 +57,9 @@ def Install_PHP():
     
     else:
         print("You entered an unspecified value. You need to use Y or N. Start again...")
+        Standart_User = NULL
 
-    if Standart_User_Is_Whoami == "y" or Standart_User_Is_Whoami == "Y":
+    if Standart_User_Is_Whoami == "y" or Standart_User_Is_Whoami == "Y" or Standart_User != NULL:
         
         # Установка PHP
         os.system("sudo yum install php php-mysql")
