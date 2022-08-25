@@ -15,6 +15,7 @@ ChooseOS = input()
 
 if ChooseOS == "1":
     print ('''
+    \033[36m
     You selected CentOS 7
     Please write what you need to install
     Write only number. Example: 
@@ -25,7 +26,7 @@ if ChooseOS == "1":
     [+] (1) Apache      # Install Apache version 2
     [+] (2) PHP         # Install PHP version 7
     [+] (3) Zabbix      # Install Zabbix last version
-
+    \033[36m
     ''')
     CentOS_7_Mass_Install = input()
     
