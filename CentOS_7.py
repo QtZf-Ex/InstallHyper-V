@@ -64,35 +64,38 @@ def Install_PHP():
     print(''' \n\nend of install PHP\n\n''')
     ### definitions of what needs to be installed
 
-if ('1' in CentOS_7_Mass_Install[0]):
-    Install_Apache()
+try:
 
-elif ('2' in CentOS_7_Mass_Install[0]):
-    Install_PHP()
+    if ('1' in CentOS_7_Mass_Install[0]):
+        Install_Apache()
 
-elif ('3' in CentOS_7_Mass_Install[0]):
-    print('Zabbix')
+    elif ('2' in CentOS_7_Mass_Install[0]):
+        Install_PHP()
 
-
-
-if ('1' in CentOS_7_Mass_Install[1]):
-    Install_Apache()
-
-elif ('2' in CentOS_7_Mass_Install[1]):
-    Install_PHP()
-
-elif ('3' in CentOS_7_Mass_Install[1]):
-    print("go to install Zabbix_2")    
+    elif ('3' in CentOS_7_Mass_Install[0]):
+        print('https://www.zabbix.com/ru/download?zabbix=6.2&os_distribution=centos&os_version=7&components=proxy&db=mysql&ws=')
 
 
+    if ('1' in CentOS_7_Mass_Install[1]):
+        Install_Apache()
 
-if ('1' in CentOS_7_Mass_Install[2]):
-    Install_Apache()
+    elif ('2' in CentOS_7_Mass_Install[1]):
+        Install_PHP()
 
-elif ('2' in CentOS_7_Mass_Install[2]):
-    Install_PHP()
+    elif ('3' in CentOS_7_Mass_Install[1]):
+        print("https://www.zabbix.com/ru/download?zabbix=6.2&os_distribution=centos&os_version=7&components=proxy&db=mysql&ws=")    
 
-elif ('3' in CentOS_7_Mass_Install[2]):
-    print("go to install Zabbix_3")  
+
+
+    if ('1' in CentOS_7_Mass_Install[2]):
+        Install_Apache()
+
+    elif ('2' in CentOS_7_Mass_Install[2]):
+        Install_PHP()
+
+    elif ('3' in CentOS_7_Mass_Install[2]):
+        print("https://www.zabbix.com/ru/download?zabbix=6.2&os_distribution=centos&os_version=7&components=proxy&db=mysql&ws=")  
+except:
+    print("End...")
 
 # Создай try, чтобы выводилось красиво, а не фигня в конце. Там выводится line 80 в ауте range
