@@ -42,41 +42,27 @@ def Install_Apache():
 def Install_PHP():
     print(''' \n\nInstall PHP\n\n''')
 
-    Standart_User_Is_Whoami = input("Standart User for owner of Apache is: " + os.system("whoami") + "OK?\n")
-    if str(Standart_User_Is_Whoami) == "y" or str(Standart_User_Is_Whoami) == "Y":
-        Standart_User = Standart_User_Is_Whoami
-        print("OK, Apache owner is" + Standart_User + "\n\n\n")
-    
-    elif Standart_User_Is_Whoami == "n" or Standart_User_Is_Whoami == "N":
-        Standart_User = input("\n\nStandart User is" + os.system("whoami") + "?\n\n")
-        print("Apache owner is "+ Standart_User) 
-    
-    else:
-        print("You entered an unspecified value. You need to use Y or N. Start again...")
+    Standart_User = os.system("whoami")
 
-    if Standart_User_Is_Whoami == "y" or Standart_User_Is_Whoami == "Y" or Standart_User != "":
+    # Установка PHP
+    os.system("sudo yum install php php-mysql")
+    os.system("sudo systemctl restart httpd.service")
+
+    # Установка владельца Apache
+    os.system("sudo chown -R " + str(Standart_User) + "/var/www/html/")
+
+    #Создание файлика info.php
+    os.system("cp info.php /var/www/html/info.php")
         
-        # Установка PHP
-        os.system("sudo yum install php php-mysql")
-        os.system("sudo systemctl restart httpd.service")
+    # Получить информацию о php
+    os.system("Apache Info: >> Info")
+    os.system("""ip a | grep eth0 | grep inet | awk '{print $2}' | cut -d"/" -f1 >> Info""")
+    os.system("hostname -I >> Info\n\n\n")
 
-        # Установка владельца Apache
-        os.system("sudo chown -R " + Standart_User + "/var/www/html/")
+    # http://your_server_IP_address/info.php
 
-        #Создание файлика info.php
-        os.system("cp info.php /var/www/html/info.php")
-        
-        # Получить информацию о php
-        os.system("Apache Info: >> Info")
-        os.system("""ip a | grep eth0 | grep inet | awk '{print $2}' | cut -d"/" -f1 >> Info""")
-        os.system("hostname -I >> Info\n\n\n")
-
-        # http://your_server_IP_address/info.php
-
-
-
-        print(''' \n\nend of install PHP\n\n''')
-        ### definitions of what needs to be installed
+    print(''' \n\nend of install PHP\n\n''')
+    ### definitions of what needs to be installed
 
 if ('1' in CentOS_7_Mass_Install[0]):
     Install_Apache()
