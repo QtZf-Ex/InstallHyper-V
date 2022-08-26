@@ -109,7 +109,10 @@ try:
         Install_PHP()
 
     elif ('3' in CentOS_7_Mass_Install[1]):
-        print("https://www.zabbix.com/ru/download?zabbix=6.2&os_distribution=centos&os_version=7&components=proxy&db=mysql&ws=")    
+        print("https://www.zabbix.com/ru/download?zabbix=6.2&os_distribution=centos&os_version=7&components=proxy&db=mysql&ws=")  
+    
+    elif ('4' in CentOS_7_Mass_Install[1]):
+        Install_Iptables() 
 
 
 
@@ -121,6 +124,23 @@ try:
 
     elif ('3' in CentOS_7_Mass_Install[2]):
         print("https://www.zabbix.com/ru/download?zabbix=6.2&os_distribution=centos&os_version=7&components=proxy&db=mysql&ws=")  
+    
+    elif ('4' in CentOS_7_Mass_Install[2]):
+        Install_Iptables()
+
+    
+    
+    if ('1' in CentOS_7_Mass_Install[3]):
+        Install_Apache()
+
+    elif ('2' in CentOS_7_Mass_Install[3]):
+        Install_PHP()
+
+    elif ('3' in CentOS_7_Mass_Install[3]):
+        print("https://www.zabbix.com/ru/download?zabbix=6.2&os_distribution=centos&os_version=7&components=proxy&db=mysql&ws=")  
+    
+    elif ('4' in CentOS_7_Mass_Install[3]):
+        Install_Iptables()
 except:
     print("End...")
 
