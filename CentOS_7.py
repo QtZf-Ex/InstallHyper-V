@@ -98,7 +98,7 @@ try:
         print('https://www.zabbix.com/ru/download?zabbix=6.2&os_distribution=centos&os_version=7&components=proxy&db=mysql&ws=')
     
     elif ('4' in CentOS_7_Mass_Install[0]):
-        Install_Iptables() 
+        Install_Iptables()
 
 
 
