@@ -66,22 +66,22 @@ def Install_PHP():
     print(''' \n\nend of install PHP\n\n''')
     ### definitions of what needs to be installed
 
-    def Install_Iptables():
-        if os.system(" systemctl | grep firewalld | wc -l") >= 1:
-            print("Iptables Установлен")
-            Need_Install_Config = input("Настроить конфиг? y/n?")
-            if Need_Install_Config == "y" or Need_Install_Config == "Y":
-                print("Установка")
-            elif Need_Install_Config == "n" or Need_Install_Config == "N":
-                print("Завершение")
-            else:
-                print("Введите корректное значение y/n")
-                return Install_Iptables()
-        elif os.system(" systemctl | grep firewalld | wc -l") == 0:
-            print("Iptables не установлен")
-            os.system("sudo yum install iptables-services -y")
-            os.system("sudo systemctl start iptables")
-            os.system("sudo systemctl enable iptables")
+def Install_Iptables():
+    if os.system(" systemctl | grep firewalld | wc -l") >= 1:
+        print("Iptables Установлен")
+        Need_Install_Config = input("Настроить конфиг? y/n?")
+        if Need_Install_Config == "y" or Need_Install_Config == "Y":
+            print("Установка")
+        elif Need_Install_Config == "n" or Need_Install_Config == "N":
+            print("Завершение")
+        else:
+            print("Введите корректное значение y/n")
+            return Install_Iptables()
+    elif os.system(" systemctl | grep firewalld | wc -l") == 0:
+        print("Iptables не установлен")
+        os.system("sudo yum install iptables-services -y")
+        os.system("sudo systemctl start iptables")
+        os.system("sudo systemctl enable iptables")
             
 
 
