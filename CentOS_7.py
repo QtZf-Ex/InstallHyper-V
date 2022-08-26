@@ -79,11 +79,14 @@ def Install_Iptables():
             return Install_Iptables()
 
     elif os.system(" systemctl | grep firewalld | wc -l") == 0:
-        print("Iptables не установлен")
+        print("Iptables не установлен\nФайлик с конфигурацией лежит в iptables")
         os.system("sudo yum install iptables-services -y")
         os.system("sudo systemctl start iptables")
         os.system("sudo systemctl enable iptables")
-        os.system
+        os.system("cp iptables /etc/sysconfig/")
+        os.system("service iptables save")
+        os.system("systemct restart iptables.service")
+        
             
 
 
