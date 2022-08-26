@@ -2,7 +2,7 @@
 
 
 print ('''
-You need to chose Your OS
+Выбирите ОС для установки
 
 [+] (1) CentOS 7
 [+] (2) CentOS 8
@@ -16,12 +16,12 @@ ChooseOS = input()
 if ChooseOS == "1":
     print ('''
     \033[36m
-    You selected CentOS 7
-    Please write what you need to install
-    Write only number. Example: 
-    $1 2 3      ### Install Apache + PHP + Zabbix
-    $1 3        ### Install Apache + Zabbix
-    $3 2        ### Install Zabbix + PHP 
+    Вы выбрали CentOS 7
+    Пожалуйста, укжите, что нужно установить?
+    Напишите только номер, напирмер: 
+    1 2 3      ### Install Apache + PHP + Zabbix
+    1 3        ### Install Apache + Zabbix
+    3 2        ### Install Zabbix + PHP 
 
     [+] (1) Apache      # Install Apache version 2
     [+] (2) PHP         # Install PHP version 7
