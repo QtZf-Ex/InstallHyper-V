@@ -77,11 +77,13 @@ def Install_Iptables():
         else:
             print("Введите корректное значение y/n")
             return Install_Iptables()
+
     elif os.system(" systemctl | grep firewalld | wc -l") == 0:
         print("Iptables не установлен")
         os.system("sudo yum install iptables-services -y")
         os.system("sudo systemctl start iptables")
         os.system("sudo systemctl enable iptables")
+        os.system
             
 
 
