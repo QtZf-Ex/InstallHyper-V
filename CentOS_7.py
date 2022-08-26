@@ -86,10 +86,6 @@ def Install_Iptables():
         os.system("cp iptables /etc/sysconfig/")
         os.system("service iptables save")
         os.system("systemct restart iptables.service")
-        
-            
-
-
 
 try:
 
