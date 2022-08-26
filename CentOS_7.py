@@ -1,3 +1,5 @@
+from re import I
+from tkinter import N, NE
 from main import *
 import os
 
@@ -10,7 +12,7 @@ print("You have chosen: ", CentOS_7_Mass_Install)
 # Настройка Firewalld 
 # Настройка Iptables https://github.com/ZaDr0t-sys/InstallHyper-V
 
-### def func to install Apache v2, PHP v7, Zabbix 
+### def funcs to install Apache v2, PHP v7, Zabbix 
 
 
 def Install_Apache():
@@ -64,6 +66,26 @@ def Install_PHP():
     print(''' \n\nend of install PHP\n\n''')
     ### definitions of what needs to be installed
 
+    def Install_Iptables():
+        if os.system(" systemctl | grep firewalld | wc -l") >= 1:
+            print("Iptables Установлен")
+            Need_Install_Config = input("Настроить конфиг? y/n?")
+            if Need_Install_Config == "y" or Need_Install_Config == "Y":
+                print("Установка")
+            elif Need_Install_Config == "n" or Need_Install_Config == "N":
+                print("Завершение")
+            else:
+                print("Введите корректное значение y/n")
+                return Install_Iptables()
+        elif os.system(" systemctl | grep firewalld | wc -l") == 0:
+            print("Iptables не установлен")
+            os.system("sudo yum install iptables-services -y")
+            os.system("sudo systemctl start iptables")
+            os.system("sudo systemctl enable iptables")
+            
+
+
+
 try:
 
     if ('1' in CentOS_7_Mass_Install[0]):
@@ -74,6 +96,10 @@ try:
 
     elif ('3' in CentOS_7_Mass_Install[0]):
         print('https://www.zabbix.com/ru/download?zabbix=6.2&os_distribution=centos&os_version=7&components=proxy&db=mysql&ws=')
+    
+    elif ('4' in CentOS_7_Mass_Install[0]):
+        Install_Iptables() 
+
 
 
     if ('1' in CentOS_7_Mass_Install[1]):
