@@ -15,7 +15,7 @@ ChooseOS = input()
 
 if ChooseOS == "1":
     print ('''
-    \033[36m
+    
     Вы выбрали CentOS 7
     Пожалуйста, укжите, что нужно установить?
     Напишите только номер, напирмер: 
@@ -25,8 +25,8 @@ if ChooseOS == "1":
 
     [+] (1) Apache      # Install Apache version 2
     [+] (2) PHP         # Install PHP version 7
-    [+] (3) Zabbix      # Install Zabbix last version
-    \033[36m
+    [+] (3) Zabbix      # Get link to install Zabbix
+    [+] (4) Iptables    # Install Iptables + standart config 
     ''')
     CentOS_7_Mass_Install = input()
     
